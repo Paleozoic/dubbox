@@ -113,7 +113,7 @@ public abstract class AbstractConfig implements Serializable {
                     Object value = method.invoke(annotation, new Object[0]);
                     if (value != null && ! value.equals(method.getDefaultValue())) {
                         Class<?> parameterType = ReflectUtils.getBoxedClass(method.getReturnType());
-                        if ("filter".equals(property) || "listener".equals(property)) {
+                        if ("filter".equals(property) || "listener".equals(property)|| "router".equals(property)) {
                             parameterType = String.class;
                             value = StringUtils.join((String[]) value, ",");
                         } else if ("parameters".equals(property)) {
